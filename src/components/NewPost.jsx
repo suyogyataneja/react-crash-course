@@ -2,7 +2,7 @@ import classes from './NewPost.module.css';
 import { useState } from 'react';
 
 
-function NewPost({onCancel}){
+function NewPost({onCancel, onAddPost}){
 
     const [enteredBody, setEnteredBody] = useState('');
 
@@ -24,7 +24,8 @@ function NewPost({onCancel}){
             body: enteredBody,
             author: enteredAuthor
         };
-        console.log(postData);
+        // console.log(postData);
+        onAddPost(postData);
         onCancel();
     }
 
@@ -44,7 +45,7 @@ function NewPost({onCancel}){
                 <button  type="button"  onClick={onCancel}>
                     Cancel
                 </button>
-                <button >Submit</button>
+                <button>Submit</button>
             </p>
 
 
